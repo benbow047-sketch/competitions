@@ -1,0 +1,80 @@
+from building import *
+import os
+
+cwd     = GetCurrentDir()
+
+src = [cwd + '/robot.c']
+
+path = [cwd]
+
+if GetDepend(['BSP_USING_EXAMPLE_TASK']):
+    src += Glob(cwd + '/example/*.c')
+    path += [cwd + '/example']
+
+if GetDepend(['BSP_USING_INS_TASK']):
+    src += Glob(cwd + '/ins/*.c')
+    path += [cwd + '/ins']
+
+if GetDepend(['BSP_USING_MOTOR_TASK']):
+    src += Glob(cwd + '/motor/*.c')
+    path += [cwd + '/motor']
+
+if GetDepend(['BSP_USING_CMD_TASK']):
+    src += Glob(cwd + '/cmd/*.c')
+    path += [cwd + '/cmd']
+
+if GetDepend(['BSP_USING_CHASSIS_TASK']):
+    src += Glob(cwd + '/chassis/*.c')
+    path += [cwd + '/chassis']
+
+if GetDepend(['BSP_USING_GIMBAL_TASK']):
+    src += Glob(cwd + '/gimbal/*.c')
+    path += [cwd + '/gimbal']
+
+if GetDepend(['BSP_USING_TRANSMISSION_TASK']):
+    src += Glob(cwd + '/transmission/*.c')
+    path += [cwd + '/transmission']
+
+if GetDepend(['BSP_USING_SHOOT_TASK']):
+    src += Glob(cwd + '/shoot/*.c')
+    path += [cwd + '/shoot']
+
+if GetDepend(['BSP_USING_SUPERCAP_TASK']):
+    src += Glob(cwd + '/supercap/*.c')
+    path += [cwd + '/supercap']
+
+if GetDepend(['BSP_USING_REFEREE_TASK']):
+    src += Glob(cwd + '/referee/*.c')
+    path += [cwd + '/referee']
+
+if GetDepend(['BSP_USING_REFEREE_TASK']):
+    src += Glob(cwd + '/referee/UI_Print/control/*.c')
+    path += [cwd + '/referee/UI_Print/control']
+
+if GetDepend(['BSP_USING_REFEREE_TASK']):
+    src += Glob(cwd + '/referee/UI_Print/priority/*.c')
+    path += [cwd + '/referee/UI_Print/priority']
+
+if GetDepend(['BSP_USING_REFEREE_TASK']):
+    src += Glob(cwd + '/referee/UI_Print/protocol/*.c')
+    path += [cwd + '/referee/UI_Print/protocol']
+
+if GetDepend(['BSP_USING_REFEREE_TASK']):
+    src += Glob(cwd + '/referee/UI_Print/config/*.c')
+    path += [cwd + '/referee/UI_Print/config']
+
+if GetDepend(['BSP_USING_REFEREE_TASK']):
+    src += Glob(cwd + '/referee/UI_Print/protocol/crc/*.c')
+    path += [cwd + '/referee/UI_Print/protocol/crc']
+
+if GetDepend(['BSP_USING_REFEREE_TASK']):
+    src += Glob(cwd + '/referee/UI_Print/Alog/*.c')
+    path += [cwd + '/referee/UI_Print/Alog']
+
+if GetDepend(['BSP_USING_REFEREE_TASK']):
+    src += Glob(cwd + '/referee/UI_Print/Alog/support/*.c')
+    path += [cwd + '/referee/UI_Print/Alog/support']
+
+group = DefineGroup('RM_Task', src, depend = [''], CPPPATH = path)
+
+Return('group')
