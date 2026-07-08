@@ -1,10 +1,8 @@
 # STM32F407 Robomaster 开发板C型 BSP 说明
 
-*针对 Robomaster 机器人的文件位于 `src` 文件夹中*
-
 ## 简介
 
-本文档为 STM32F407 Robomaster 开发板C型 的 BSP (板级支持包) 说明。
+本文档为 STM32F407 开发板C型 的 BSP (板级支持包) 说明。
 
 主要内容如下：
 
@@ -45,8 +43,7 @@ Robomaster 开发板C型 是大疆创新科技有限公司推出的一款基于 
 
 | **板载外设** | **支持情况** | **备注**                             |
 | :----------- | :----------: | :----------------------------------- |
-| BMI088       |   暂不支持   | 六轴惯性测量单元（有软件包）            |
-| IST8310      |   暂不支持   | 三轴磁力计                           |
+| BMI088       |   支持   | 六轴惯性测量单元            |
 | **片上外设** | **支持情况** | **备注**                             |
 | GPIO         |     支持     | PA0, PA1... PH1 ---> PIN: 0, 1...144 |
 | UART         |     支持     | UART1(FinSH),  UART3(DBUS),  UART6          |
@@ -116,15 +113,4 @@ msh >
 - 部分外设需通过 XT30 或 USB 接口供电才能正常使用，包括 CAN、舵机5V供电、IMU恒温电路等
 - 目前 scons 支持生成 cmake 配置文件，可以使用 CLion 进行 C板 的程序开发，推荐同学们尝试。详细步骤可参见：[在 Clion 中调试 rt-thread 工程](https://club.rt-thread.org/ask/article/2840.html)
 
-## 联系人信息
-
-维护人:
-
-- [crazt](https://github.com/CraztTnspt) ，邮箱：<crazt@foxmail.com>
-- [Meng](https://github.com/Meng2025) ，邮箱：<m@njust.edu.cn>
-- [Z8MAN8](https://github.com/Z8MAN8)，邮箱：1468559561@qq.com
-
-## 致谢
-
-该工程参考了多个开源电控框架，在此致谢！希望共创积极友好的开源环境！
 
